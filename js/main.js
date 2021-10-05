@@ -18,7 +18,7 @@ function openMenu() {
   }
 }
 openMenu();
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(Flip)
 const tl = gsap.timeline();
 
 function slickAnimation() {
@@ -123,3 +123,41 @@ tl.from('.banner', {
   })
 }
 slickAnimation();
+
+
+
+
+function handleTab(){
+  const tabsParent = document.querySelectorAll('[data-parent]');
+  const tabChildren = document.querySelectorAll('[data-id]');
+  
+  // Add listeners
+  tabsParent.forEach(item => {
+    item.onclick = () => {
+      ;let parent = item.getAttribute('data-parent')
+      tabChildren.forEach(child => {
+       
+        const childId = child.getAttribute('data-id');
+        console.log(childId);
+        if(parent == childId){
+          child.classList.add('show');
+        const state = Flip.getState(child);
+        
+        Flip.from(state, {
+          duration: 0.7,
+          opacity: 0,
+          y: 'random(100, -100)'
+        })
+       
+        }
+        if(parent != childId){
+          child.classList.remove('show')
+         item.classList.remove('active');
+        }
+      })
+    }
+  });
+  
+
+}
+handleTab();

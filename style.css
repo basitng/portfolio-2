@@ -26,6 +26,7 @@ body {
   /* background: url('images/stars.jpg');*/
   scroll-behavior: smooth;
   background: #1f1f1f;
+
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
@@ -99,6 +100,9 @@ nav .menu div {
   font-size: 60px;
   font-weight: 900;
   text-transform: capitalize;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #FFF;
+  text-wrap: nowrap;
   font-family: "header";
 }
 
@@ -336,8 +340,9 @@ a > span{
 }
 .preloader p{
   display: block;
-  color: white;
   font-size: 55px;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #42445A;
   font-family: "header";
 }
 .preloader div:nth-child(2){
@@ -345,4 +350,39 @@ a > span{
 }
 .preloader div:nth-child(3){
   background: var(--primary);
+}
+
+
+
+
+.tabs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ /* overflow-x: scroll;
+  width: 80%;
+  margin: 1px auto;
+  */
+}
+.tabs > p{
+  margin: 10px;
+  position: relative;
+  text-transform: capitalize;
+ /* font-family: "header";*/
+}
+.tabs .active::before{
+  content: "";
+  width: 100%;
+  height: .2rem;
+  background: white;
+  position: absolute;
+  bottom: -10%;
+  left: 0;
+  border-radius: 48px;
+}
+.portfolio img{
+  display: none;
+}
+.show{
+  display: block !important;
 }
