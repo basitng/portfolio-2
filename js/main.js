@@ -18,6 +18,7 @@ function openMenu() {
   }
 }
 openMenu();
+gsap.registerPlugin(ScrollTrigger)
 const tl = gsap.timeline();
 
 function slickAnimation() {
