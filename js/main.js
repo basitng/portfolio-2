@@ -1,5 +1,10 @@
-const tl = gsap.timeline();
+document.addEventListener('DOMContentLoaded', removeLoader);
 
+
+function removeLoader(){
+  const preloader = document.querySelector('.preloader');
+  preloader.classList.remove('preloader');
+}
 function openMenu() {
   const menu = document.querySelector('.menu');
   const sidebar = document.querySelector('.sidebar');
@@ -13,20 +18,34 @@ function openMenu() {
   }
 }
 openMenu();
+const tl = gsap.timeline();
 
 function slickAnimation() {
-  tl.from('body', {
+const preloader = gsap.timeline({repeat: 50, yoyo: true})
+gsap.from('.sidebar a', {
+ 
+  duration: 1,
+  y: '100vh',
+  opacity: 0,
+  stagger: .5
+})
+preloader.fromTo('.preloader div', {duration: 1, ease: "bounce", opacity: 0, y: "2vh"}, {duration: .5, y: "-3vh", opacity: 1, stagger: .6})
+tl.from('.banner', {
     duration: 2,
     opacity: 0,
     y: "100vh",
     ease: "bounce",
   })
+  preloader.to('.preloader p', {
+    duration: .5,
+    scale: 1.1,
+  })
   //Nav
-  /*tl.from('nav', {
-    duration: 2,
+  tl.from('nav', {
+    duration: 1,
     opacity: 0,
     x: '-100%'
-  })*/
+  })
   //banner text
   tl.from('.caption h2, .caption p', {
     duration: 1,
@@ -89,16 +108,17 @@ function slickAnimation() {
     stagger: .1,
     ease: "bounce",
   })
-  tl2.from('.c5', {
+  tl2.set('.c5', {scale: 1.5, opacity: 1})
+  tl2.to('.c5', {
     scrollTrigger: {
       trigger: '.c5',
       start: '-900 center',
       
     },
-    duration: 1,
-    delay: 1,
-    opacity: 0,
-    y: '10vh'
+    duration: 2,
+    delay: 5,
+    opacity: 1,
+    scale: 1.0
   })
 }
 slickAnimation();
