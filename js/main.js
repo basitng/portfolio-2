@@ -18,7 +18,8 @@ function openMenu() {
   }
 }
 openMenu();
-gsap.registerPlugin(Flip)
+
+
 const tl = gsap.timeline();
 
 function slickAnimation() {
@@ -161,3 +162,4 @@ function handleTab(){
 
 }
 handleTab();
+gsap.registerPlugin(Flip, ScrollTrigger)
