@@ -77,7 +77,8 @@ tl.from('.banner', {
     },
     duration: 1,
     opacity: 1,
-    skewY: '9px'
+    skewY: '9px',
+    ease: "slow"
   })
   tl2.from('.c3', {
     scrollTrigger: {
