@@ -4,4 +4,4 @@ If you like the project please rate the project.
 ## You can also contribute to make this site look great.
 
 #Demo link 💻
-nashua.netlify.app
+<a href="bashua.netlify.app">Visit site now 🤗</a>
